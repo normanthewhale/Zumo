@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { prefix, token } = require('./config.json');
+const { PREFIX } = require('./config.json');
 const Discord = require('discord.js');
 
 const client = new Discord.Client();
@@ -19,9 +19,9 @@ client.once('ready', () => {
 
 //Listen for messages and when a proper command is requested handle the execution.
 client.on('message', message => {
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
+	if (!message.content.startsWith(PREFIX) || message.author.bot) return;
 
-	const args = message.content.slice(prefix.length).trim().split(/ +/);
+	const args = message.content.slice(PREFIX.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
 
 	const command = client.commands.get(commandName)
@@ -39,7 +39,7 @@ client.on('message', message => {
 		let reply = `You didn't provide any arguments, ${message.author}!`;
 
 		if (command.usage) {
-			reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+			reply += `\nThe proper usage would be: \`${PREFIX}${command.name} ${command.usage}\``;
 		}
 
 		return message.channel.send(reply);
@@ -56,6 +56,7 @@ client.on('message', message => {
 	
 	if (timestamps.has(message.author.id)) {
 		const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+		
 
 		if (now < expirationTime) {
 			const timeLeft = (expirationTime - now) / 1000;
@@ -76,4 +77,4 @@ client.on('message', message => {
 });
 
 //Bot log-in
-client.login(token);
+client.login(process.env.TOKEN);
