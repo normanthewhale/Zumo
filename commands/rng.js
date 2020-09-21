@@ -7,7 +7,7 @@ module.exports = {
 	guildOnly: false,
 	cooldown: 0,
 	execute(message, args) {
-        let randomNum = Math.floor((Math.random() * args[0]) + 1);;
+        let randomNum = Math.floor((Math.random() * args[0]) + 1);
 		message.channel.send(randomNum);
 	},
 };
