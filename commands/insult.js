@@ -11,12 +11,12 @@ module.exports = {
         let user = args[0];
         let newInsult;
         try {
-            if (args.length() > 1) {
+            if (args.length > 1) {
                 newInsult = args.unshift().join(' ');
                 insultList.push(newInsult);
                 message.channel.send(user + ' ' + randomNum);
             } else {
-                let randomInsult = insultList[Math.floor((Math.random() * insultList.length()) + 1)];
+                let randomInsult = insultList[Math.floor(Math.random() * insultList.length + 1)];
                 message.channel.send(user + ' ' + randomInsult);
             }
         } catch (error) {
