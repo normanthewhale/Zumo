@@ -79,7 +79,7 @@ client.on('message', message => {
 // Create an event listener for new guild members
 client.on('guildMemberAdd', member => {
 	const welcomeChannel = member.guild.channels.cache.find(ch => ch.name === 'welcome');
-	if (!channel) return;
+	if (!welcomeChannel) return;
 	welcomeChannel.send(`Welcome to the server, ${member}, please make yourself at home and use the !help command if you want to know more about what I can do.` );
 });
 
