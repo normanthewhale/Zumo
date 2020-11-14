@@ -11,14 +11,14 @@ module.exports = {
         let user = args[0];
         let insult;
         if (args.length > 1) {
-            let insultArray = args.unshift();
+            let insultArray = args.shift();
             insult = insultArray.join(' ');
             let insultExists = insultList.some(i => i === insult);
             if (!insultExists) {
                 insultList.push(insult);
             }
         } else {
-            let index = Math.floor(Math.random() * insultList.length + 1)
+            let index = Math.floor(Math.random() * insultList.length);
             insult = insultList[index];
         }
         try {
