@@ -7,19 +7,17 @@ module.exports = {
 	guildOnly: false,
 	cooldown: 0,
 	execute(message, args) {
-        let insultList = ['is peepee poopoo!', 'has bad breath.', 'doesn\'t shower.'];
+        let insultList = ['cockalorum', 'snollygoster', 'pillock', 'lickspittle', 'smellfungus', 
+                          'ninnyhammer', 'mumpsimus', 'milksop', 'hobbledehoy', 'pettifogger', 
+                          'mooncalf', 'saltimbanco', 'smell-feast'];
         let user = args[0];
         let insult;
         if (args.length > 1) {
             let insultArray = args.slice(1);
             insult = insultArray.join(' ');
-            let insultExists = insultList.some(i => i === insult);
-            if (!insultExists) {
-                insultList.push(insult);
-            }
         } else {
             let index = Math.floor(Math.random() * insultList.length);
-            insult = insultList[index];
+            insult = 'is a ' + insultList[index];
         }
         try {
             message.channel.send(user + ' ' + insult);
