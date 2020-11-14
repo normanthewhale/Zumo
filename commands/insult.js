@@ -11,7 +11,7 @@ module.exports = {
         let user = args[0];
         let insult;
         if (args.length > 1) {
-            let insultArray = args.shift();
+            let insultArray = args.slice(1);
             insult = insultArray.join(' ');
             let insultExists = insultList.some(i => i === insult);
             if (!insultExists) {
