@@ -14,7 +14,7 @@ module.exports = {
             if (args.length > 1) {
                 newInsult = args.unshift().join(' ');
                 insultList.push(newInsult);
-                message.channel.send(user + ' ' + randomNum);
+                message.channel.send(user + ' ' + newInsult);
             } else {
                 let randomInsult = insultList[Math.floor(Math.random() * insultList.length + 1)];
                 message.channel.send(user + ' ' + randomInsult);
