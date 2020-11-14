@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'insult',
 	aliases: ['diss'],
-	description: 'Generates a random insult directed at a user of your choice.',
+	description: 'If no insult parameter is present it will generate a random insult directed at a user of your choice. If you have any insults you would like to add please DM @normanthewhale with your suggestion.',
 	args: true,
 	usage: '<user> <insult>',
 	guildOnly: false,
