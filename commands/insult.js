@@ -22,7 +22,7 @@ module.exports = {
             insult = insultList[index];
         }
         try {
-            message.channel.send(user + ' ' + randomInsult);
+            message.channel.send(user + ' ' + insult);
         } catch (error) {
             message.channel.send(error);
         }  
