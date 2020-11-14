@@ -20,6 +20,7 @@ module.exports = {
             insult = 'is a ' + insultList[index];
         }
         try {
+            message.delete();
             message.channel.send(user + ' ' + insult);
         } catch (error) {
             message.channel.send(error);
