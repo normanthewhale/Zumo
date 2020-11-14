@@ -7,18 +7,22 @@ module.exports = {
 	guildOnly: false,
 	cooldown: 0,
 	execute(message, args) {
-        let insultList = ['is peepee poopoo']
+        let insultList = ['is peepee poopoo!', 'has bad breath.', 'doesn\'t shower.'];
         let user = args[0];
-        let newInsult;
-        try {
-            if (args.length > 1) {
-                newInsult = args.unshift().join(' ');
-                insultList.push(newInsult);
-                message.channel.send(user + ' ' + newInsult);
-            } else {
-                let randomInsult = insultList[Math.floor(Math.random() * insultList.length + 1)];
-                message.channel.send(user + ' ' + randomInsult);
+        let insult;
+        if (args.length > 1) {
+            let insultArray = args.unshift();
+            insult = insultArray.join(' ');
+            let insultExists = insultList.some(i => i === insult);
+            if (!insultExists) {
+                insultList.push(insult);
             }
+        } else {
+            let index = Math.floor(Math.random() * insultList.length + 1)
+            insult = insultList[index];
+        }
+        try {
+            message.channel.send(user + ' ' + randomInsult);
         } catch (error) {
             message.channel.send(error);
         }  
