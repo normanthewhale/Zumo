@@ -18,7 +18,7 @@ client.once('ready', () => {
 });
 
 //Listen for messages and when a proper command is requested handle the execution.
-client.on('message', message => {
+client.on('message', async message => {
 	if (!message.content.startsWith(PREFIX) || message.author.bot) return;
 
 	const args = message.content.slice(PREFIX.length).trim().split(/ +/);
